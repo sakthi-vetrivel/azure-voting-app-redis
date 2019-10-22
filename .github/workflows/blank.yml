@@ -13,8 +13,8 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
-        docker build . -t suvetrivtest.azurecr.io/k8sdemo:${{ github.sha }}
-        docker push suvetrivtest.azurecr.io/k8sdemo:${{ github.sha }}
+        docker build . -t suvetrivtest.azurecr.io/azure-vote-front${{ github.sha }}
+        docker push suvetrivtest.azurecr.io/azure-vote-front:${{ github.sha }}
       
     # Set the target AKS cluster. 
     - uses: azure/k8s-actions/aks-set-context@master
@@ -36,6 +36,6 @@ jobs:
           manifests/deployment.yml
           manifests/service.yml
         images: |
-          contoso.azurecr.io/k8sdemo:${{ github.sha }}
+          suvetrivtest.azurecr.io/azure-vote-front:${{ github.sha }}
         imagepullsecrets: |
           demo-k8s-secret
