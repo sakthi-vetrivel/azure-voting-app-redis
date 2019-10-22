@@ -14,8 +14,8 @@ jobs:
     
     - run: |
         docker-compose up --build -d 
-        docker tag azure-vote-front suvetrivtest.azurecr.io/azure-vote-front:${{ github.sha }}
-        docker push suvetrivtest.azurecr.io/azure-vote-front:${{ github.sha }}
+        docker tag azure-vote-front suvetrivtest.azurecr.io/azure-vote-front:v1
+        docker push suvetrivtest.azurecr.io/azure-vote-front:v1
       
     # Set the target AKS cluster. 
     - uses: azure/k8s-actions/aks-set-context@master

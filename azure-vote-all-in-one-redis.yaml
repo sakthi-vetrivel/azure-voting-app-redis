@@ -33,7 +33,7 @@ kind: Deployment
 metadata:
   name: azure-vote-front
 spec:
-  replicas: 1
+  replicas: 3
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -48,7 +48,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: suvetriv.azurecr.io/azure-vote-front:${{ github.sha }}
+        image: suvetriv.azurecr.io/azure-vote-front:v1
         ports:
         - containerPort: 80
         resources:
