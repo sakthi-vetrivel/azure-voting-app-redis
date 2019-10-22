@@ -13,7 +13,8 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
-        docker build . -t suvetrivtest.azurecr.io/azure-vote-front${{ github.sha }}
+        docker-compose up -d 
+        docker tag suvetrivtest.azurecr.io/azure-vote-front${{ github.sha }}
         docker push suvetrivtest.azurecr.io/azure-vote-front:${{ github.sha }}
       
     # Set the target AKS cluster. 
