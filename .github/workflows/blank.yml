@@ -13,7 +13,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
-        docker-compose up -d 
+        docker-compose up --build -d 
         docker tag azure-vote-front suvetrivtest.azurecr.io/azure-vote-front:${{ github.sha }}
         docker push suvetrivtest.azurecr.io/azure-vote-front:${{ github.sha }}
       
